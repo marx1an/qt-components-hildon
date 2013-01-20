@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+ln -s /opt/lib/qt4/imports/org/hildon /usr/lib/qt4/imports/org/hildon
+
+exit 0
