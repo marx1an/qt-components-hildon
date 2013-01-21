@@ -84,6 +84,7 @@ FocusScope {
             right: parent.right
             rightMargin: platformStyle.paddingRight
         }
+        selectByMouse: true
         onAccepted: root.accepted()
     }
 

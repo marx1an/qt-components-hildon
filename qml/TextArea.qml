@@ -70,6 +70,7 @@ FocusScope {
         height: Math.max(120, paintedHeight + platformStyle.paddingXLarge)
         anchors { top: parent.top; left: parent.left; right: parent.right; margins: platformStyle.paddingLeft }
         wrapMode: Text.WordWrap
+        selectByMouse: true
 
         MouseArea {
             anchors.fill: parent

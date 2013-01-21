@@ -35,7 +35,7 @@ Item {
 
         anchors.fill: parent
         enabled: root.enabled
-        onClicked: screen.minimize()
+        onClicked: platformWindow.minimize()
     }
 
     states: State {
