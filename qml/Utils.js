@@ -65,7 +65,7 @@ function findRootItem(item, objectName)
 {
     var next = item;
     
-    var rootItemName = "__pageStackWindow";
+    var rootItemName = "__appWindow";
     if (typeof(objectName) !== 'undefined') {
         rootItemName = objectName;
     }

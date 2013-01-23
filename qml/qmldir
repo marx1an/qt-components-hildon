@@ -1,5 +1,7 @@
 plugin hildonplugin
 
+ApplicationWindow 1.0 ApplicationWindow.qml
+ApplicationWindowStyle 1.0 ApplicationWindowStyle.qml
 BusyIndicator 1.0 BusyIndicator.qml
 Button 1.0 Button.qml
 ButtonRow 1.0 ButtonRow.qml
@@ -28,6 +30,7 @@ LabelStyle 1.0 LabelStyle.qml
 LinkLabel 1.0 LinkLabel.qml
 ListItem 1.0 ListItem.qml
 ListView 1.0 ListView.qml
+Menu 1.0 Menu.qml
 MenuAction 1.0 MenuAction.qml
 MenuActionGroup 1.0 MenuActionGroup.qml
 MenuItem 1.0 MenuItem.qml
@@ -35,6 +38,7 @@ MenuLayout 1.0 MenuLayout.qml
 MultiSelectionDialog 1.0 MultiSelectionDialog.qml
 MultiSelectionItem 1.0 MultiSelectionItem.qml
 Page 1.0 Page.qml
+PageStack 1.0 PageStack.qml
 PageStackWindow 1.0 PageStackWindow.qml
 PageStackWindowStyle 1.0 PageStackWindowStyle.qml
 ProgressBar 1.0 ProgressBar.qml
@@ -52,6 +56,7 @@ SelectionDialogStyle 1.0 SelectionDialogStyle.qml
 SelectionItem 1.0 SelectionItem.qml
 Slider 1.0 Slider.qml
 SliderStyle 1.0 SliderStyle.qml
+StatusBar 1.0 StatusBar.qml
 Style 1.0 Style.qml
 StylusButton 1.0 StylusButton.qml
 StylusButtonStyle 1.0 StylusButtonStyle.qml
@@ -59,6 +64,8 @@ TabBar 1.0 TabBar.qml
 TabButton 1.0 TabButton.qml
 TabButtonStyle 1.0 TabButtonStyle.qml
 TabGroup 1.0 TabGroup.qml
+TableColumn 1.0 TableColumn.qml
+TableView 1.0 TableView.qml
 TextArea 1.0 TextArea.qml
 TextAreaStyle 1.0 TextAreaStyle.qml
 TextField 1.0 TextField.qml

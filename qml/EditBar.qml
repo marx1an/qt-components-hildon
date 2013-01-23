@@ -8,6 +8,9 @@ Item {
     default property alias buttons: buttonRow.children
     property Style platformStyle: Style {}
 
+    signal backClicked
+    signal backPressAndHold
+
     width: screen.width
     height: 56
     anchors.top: !parent ? undefined : parent.top
@@ -51,7 +54,8 @@ Item {
         id: backButton
 
         anchors { top: parent.top; right: parent.right }
-        onClicked: pageStack.depth === 1 ? Qt.quit() : pageStack.pop()
-        onPressAndHold: if (pageStack.depth > 1) pageStack.pop(null);
+        iconSource: pressed ? "image://theme/wmBackIconPressed" : "image://theme/wmBackIcon"
+        onClicked: root.backClicked()
+        onPressAndHold: root.backPressAndHold()
     }
 }

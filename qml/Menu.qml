@@ -3,7 +3,7 @@ import QtQuick 1.0
 Popup {
     id: root
 
-    property Item tools: pageStack.currentPage === null ? null : pageStack.currentPage.tools
+    property Item tools: null
     property Item toolsParent // Pointer to the original parent of the tools
     property Style platformStyle: MenuStyle {}
 

@@ -7,7 +7,7 @@ Item {
     property bool inPortrait: screen.inPortrait
     property bool fullScreen: false
     property alias pageStack: stack
-    property string windowTitle
+    property alias windowTitle: statusBar.titleText
     property Item initialPage: null
     property bool busy: false
     property Style platformStyle: PageStackWindowStyle {}
@@ -35,7 +35,7 @@ Item {
         blurItem.keepBlur = false;
     }
 
-    objectName: "__pageStackWindow"
+    objectName: "__appWindow"
 
     Component.onCompleted: if (initialPage !== null) stack.push(initialPage, undefined, true);
 
@@ -71,13 +71,23 @@ Item {
         StatusBar {
             id: statusBar
 
+            property string backPressedState: backButtonPressed ? "Pressed" : ""
+
+            titleText: appWindow.windowTitle
             visible: !appWindow.fullScreen
+            showBusyIndicator: appWindow.busy
+            showMenuIndicator: (pageStack.currentPage !== null) && (pageStack.currentPage.tools !== null)
+            backButtonIconSource: (pageStack === null) || (pageStack.depth === 1) ? "image://theme/wmCloseIcon" + backPressedState : "image://theme/wmBackIcon" + backPressedState
+            onTitleAreaClicked: menu.open()
+            onBackClicked: (pageStack === null) || (pageStack.depth === 1) ? Qt.quit() : pageStack.pop()
+            onBackPressAndHold: if ((pageStack !== null) && (pageStack.depth > 1)) pageStack.pop(null);
         }
     }
 
     Menu {
         id: menu
 
+        tools: pageStack.currentPage === null ? null : pageStack.currentPage.tools
         visible: (pageStack.currentPage !== null) && (pageStack.currentPage.tools !== null)
     }
 

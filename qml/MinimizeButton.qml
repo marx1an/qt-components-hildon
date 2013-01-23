@@ -3,8 +3,6 @@ import QtQuick 1.0
 Item {
     id: root
 
-    property bool enabled: true
-
     width: screen.inPortrait ? 70 : 112
     height: 56
 

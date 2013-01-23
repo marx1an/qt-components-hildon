@@ -3,7 +3,8 @@ import QtQuick 1.0
 Item {
     id: root
 
-    property bool enabled: true
+    property alias pressed: mouseArea.pressed
+    property alias iconSource: icon.source
 
     signal pressAndHold
     signal clicked
@@ -16,7 +17,7 @@ Item {
 
         anchors.fill: parent
         source: "image://theme/wmRightButtonPressed"
-        visible: false
+        visible: mouseArea.pressed
     }
 
     Image {
@@ -34,22 +35,13 @@ Item {
         id: icon
 
         anchors.centerIn: parent
-        source: (pageStack == null) || (pageStack.depth == 1) ? "image://theme/wmCloseIcon" + root.state :
-                                                                "image://theme/wmBackIcon" + root.state
     }
 
     MouseArea {
         id: mouseArea
 
         anchors.fill: parent
-        enabled: root.enabled
         onPressAndHold: root.pressAndHold()
         onClicked: root.clicked()
-    }
-
-    states: State {
-        name: "Pressed"
-        when: mouseArea.pressed
-        PropertyChanges { target: background; visible: true }
     }
 }

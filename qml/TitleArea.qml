@@ -3,7 +3,10 @@ import QtQuick 1.0
 Item {
     id: root
 
-    signal pressAndHold
+    property bool showBusyIndicator: false
+    property bool showMenuIndicator: false
+    property alias title: titleLabel.text
+
     signal clicked
 
     height: 56
@@ -12,13 +15,12 @@ Item {
     Label {
         id: titleLabel
 
-        property int maximumWidth: appWindow.busy ? parent.width - busyIndicator.width - platformStyle.paddingNormal * 2  : parent.width - platformStyle.paddingNormal * 2
+        property int maximumWidth: root.showBusyIndicator ? parent.width - busyIndicator.width - platformStyle.paddingNormal * 2  : parent.width - platformStyle.paddingNormal * 2
 
         width: paintedWidth < maximumWidth ? paintedWidth : maximumWidth
         anchors { left: parent.left; leftMargin: platformStyle.paddingNormal; verticalCenter: parent.verticalCenter }
         verticalAlignment: Text.AlignVCenter
         clip: true
-        text: appWindow.windowTitle
     }
 
     Image {
@@ -26,22 +28,20 @@ Item {
 
         anchors { left: titleLabel.right; leftMargin: 5; verticalCenter: parent.verticalCenter }
         source: "image://theme/wmMenuIndicator"
-        visible: (pageStack.currentPage !== null) && (pageStack.currentPage.tools !== null) && (!appWindow.busy) && (titleLabel.paintedWidth <= titleLabel.maximumWidth)
+        visible: (root.showMenuIndicator) && (!root.showBusyIndicator) && (titleLabel.paintedWidth <= titleLabel.maximumWidth)
     }
 
     BusyIndicator {
         id: busyIndicator
 
         anchors { left: titleLabel.right; leftMargin: 5; verticalCenter: parent.verticalCenter }
-        visible: appWindow.busy
+        visible: root.showBusyIndicator
     }
 
     MouseArea {
         id: mouseArea
 
         anchors.fill: parent
-        onPressAndHold: root.pressAndHold()
         onClicked: root.clicked()
-        enabled: (pageStack.currentPage !== null) && (pageStack.currentPage.tools !== null)
     }
 }
