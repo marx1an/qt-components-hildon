@@ -18,12 +18,13 @@ Dialog {
             anchors.fill: parent
             contentHeight: row.height
             contentWidth: width
+            interactive: contentHeight > height
 
             Row {
                 id: row
 
                 anchors { left: parent.left; right:parent.right; top: parent.top }
-                spacing: 10
+                spacing: platformStyle.paddingNormal
 
                 Image {
                     id: icon
@@ -32,7 +33,7 @@ Dialog {
                 Label {
                     id: label
 
-                    width: parent.width - icon.width - 10
+                    width: parent.width - icon.width - platformStyle.paddingNormal
                     wrapMode: Text.WordWrap
                 }
             }
