@@ -25,7 +25,8 @@ SOURCES += src/fileinfothread.cpp \
     src/maskeditem.cpp \
     src/maskeffect.cpp \
     src/effects.cpp \
-    src/hildonwindowplugin.cpp
+    src/hildonwindowplugin.cpp \
+    src/qdeclarativeprocess.cpp
 
 HEADERS += src/fileinfothread_p.h \
     src/fileproperty_p.h \
@@ -40,6 +41,7 @@ HEADERS += src/fileinfothread_p.h \
     src/effects.h \
     src/hildonenums.h \
     src/hildonwindowplugin.h \
+    src/qdeclarativeprocess.h \
     src/plugin.h
 
 maemo5 {
