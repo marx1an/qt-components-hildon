@@ -2,8 +2,9 @@
 #define FILESYSTEMMODEL_H
 
 #include "qdeclarativefolderlistmodel.h"
-#include <QDeclarativeItem>
 #include <QSortFilterProxyModel>
+
+class QDeclarativeItem;
 
 class FileSystemModel : public QSortFilterProxyModel
 {

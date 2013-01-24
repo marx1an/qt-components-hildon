@@ -1,5 +1,4 @@
- 
-#include "hildonimageprovider.h"
+#include "../hildonimageprovider.h"
 #include <QFileInfo>
 
 HildonImageProvider::HildonImageProvider() :
@@ -31,7 +30,7 @@ QString HildonImageProvider::getFileName(QString id) {
 }
 
 QImage HildonImageProvider::requestImage(const QString &id, QSize *size, const QSize &requestedSize) {
-    QString fileName = getFileName(id);
+    QString fileName = this->getFileName(id);
     QImage image(fileName);
 
     if (!image.isNull()) {

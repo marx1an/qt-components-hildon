@@ -9,21 +9,12 @@ HildonImageProvider::HildonImageProvider() :
 QString HildonImageProvider::getFileName(QString id) {
     QString fileName;
 
-#ifdef Q_WS_MAEMO_5
     if (id.startsWith("icon/")) {
         fileName = "/usr/share/icons/hicolor/48x48/hildon/" + id.section('/', -1).section('.', 0, 0);
     }
     else {
         fileName = "/etc/hildon/theme/images/" + id.section('.', 0, 0);
     }
-#else
-    if (id.startsWith("icon/")) {
-        fileName = "/home/stuart/Development/QtProjects/Maemo5_Theme/icons/hildon/" + id.section('/', -1).section('.', 0, 0);
-    }
-    else {
-        fileName = "/home/stuart/Development/QtProjects/Maemo5_Theme/images/" + id.section('.', 0, 0);
-    }
-#endif
 
     QFileInfo info(fileName + ".png");
 
@@ -39,7 +30,7 @@ QString HildonImageProvider::getFileName(QString id) {
 }
 
 QImage HildonImageProvider::requestImage(const QString &id, QSize *size, const QSize &requestedSize) {
-    QString fileName = getFileName(id);
+    QString fileName = this->getFileName(id);
     QImage image(fileName);
 
     if (!image.isNull()) {

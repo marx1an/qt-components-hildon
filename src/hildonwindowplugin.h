@@ -3,7 +3,8 @@
 
 #include "hildonenums.h"
 #include <QObject>
-#include <QDeclarativeItem>
+
+class QDeclarativeItem;
 
 class HildonWindowPlugin : public QObject
 {

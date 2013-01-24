@@ -2,8 +2,9 @@
 #define HILDONSCREENPLUGIN_H
 
 #include <QObject>
-#include <QDeclarativeItem>
 #include <QDesktopWidget>
+
+class QDeclarativeItem;
 
 class HildonScreenPlugin : public QObject
 {

@@ -3,12 +3,13 @@
 
 #include "hildonenums.h"
 #include <QObject>
-#include <QDeclarativeItem>
 #include <QSystemDeviceInfo>
 #include <QSystemNetworkInfo>
 #include <QTime>
 
 using namespace QtMobility;
+
+class QDeclarativeItem;
 
 class HildonSystemPlugin : public QObject
 {

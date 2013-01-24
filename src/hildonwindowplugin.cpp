@@ -1,13 +1,15 @@
 #include "hildonwindowplugin.h"
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusInterface>
+#include <QDBusConnection>
+#include <QDBusMessage>
+#include <QDBusInterface>
 #include <QApplication>
 #include <QDeclarativeView>
+#include <QDeclarativeItem>
 #include <QDebug>
 
 HildonWindowPlugin::HildonWindowPlugin(QDeclarativeItem *parent) :
-    QObject(parent)
+    QObject(parent),
+    m_orientation(HildonScreenOrientation::LockLandscape)
 {
 }
 

@@ -1,9 +1,11 @@
 #ifndef HILDONTHEMEPLUGIN_H
 #define HILDONTHEMEPLUGIN_H
 
-#include <QDeclarativeItem>
+#include <QObject>
+#include <QColor>
 
 class QSettings;
+class QDeclarativeItem;
 
 class HildonThemePlugin : public QObject
 {

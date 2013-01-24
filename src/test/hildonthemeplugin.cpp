@@ -1,6 +1,7 @@
-#include "hildonthemeplugin.h"
+#include "../hildonthemeplugin.h"
 #include <QSettings>
 #include <QFileInfo>
+#include <QDeclarativeItem>
 
 HildonThemePlugin::HildonThemePlugin(QDeclarativeItem *parent) :
     QObject(parent),
