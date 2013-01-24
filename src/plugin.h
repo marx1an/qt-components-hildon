@@ -7,6 +7,7 @@
 #include "filesystemmodel.h"
 #include "maskeditem.h"
 #include "effects.h"
+#include "qdeclarativeprocess.h"
 #include <QtDeclarative>
 #include <QApplication>
 
@@ -51,11 +52,13 @@ public:
         qmlRegisterUncreatableType<HildonScreenOrientation>(uri, 1, 0, "ScreenOrientation", "");
         qmlRegisterUncreatableType<HildonNetworkMode>(uri, 1, 0, "NetworkMode", "");
         qmlRegisterUncreatableType<Desaturation>(uri, 1, 0, "Desaturation", "");
+        qmlRegisterUncreatableType<QDeclarativeProcessEnums>(uri, 1, 0, "Processes", "");
 
         qmlRegisterType<FileSystemModel>(uri, 1, 0, "FileSystemModel");
         qmlRegisterType<MaskedItem>(uri, 1, 0, "MaskedItem");
         qmlRegisterType<BlurEffect>(uri, 1, 0, "BlurEffect");
         qmlRegisterType<DesaturateEffect>(uri, 1, 0, "DesaturateEffect");
+        qmlRegisterType<QDeclarativeProcess>(uri, 1, 0, "Process");
     }
 };
 
