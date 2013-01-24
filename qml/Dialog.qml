@@ -24,7 +24,11 @@ Popup {
 
     objectName: "__dialog"
     height: screen.inPortrait ? 680 : 360 //TODO: Make height dependent on content height
-    anchors { left: !parent ? undefined : parent.left; right: !parent ? undefined : parent.right; top: !parent ? undefined : parent.bottom }
+    anchors {
+        left: !parent ? undefined : parent.left
+        right: !parent ? undefined : parent.right
+        top: !parent ? undefined : parent.bottom
+    }
 
     Rectangle {
         id: background
@@ -85,13 +89,18 @@ Popup {
             var i = 0;
 
             while ((!visible) && (i < children.length)) {
-                visible = (children[i].text !== "") && (children[i].iconSource !== "");
+                visible = (children[i].text !== "") || (children[i].iconSource !== "");
                 i++;
             }
         }
 
         width: screen.inPortrait ? parent.width - 30 : 150
-        anchors { right: parent.right; rightMargin: platformStyle.buttonsRightMargin; bottom: parent.bottom; bottomMargin: platformStyle.buttonsRightMargin }
+        anchors {
+            right: parent.right
+            rightMargin: platformStyle.buttonsRightMargin
+            bottom: parent.bottom
+            bottomMargin: platformStyle.buttonsRightMargin
+        }
         spacing: platformStyle.buttonsColumnSpacing
         visible: false
         onChildrenChanged: __update()
