@@ -8,12 +8,14 @@ Item {
     default property alias buttons: buttonRow.children
     property Style platformStyle: Style {}
 
+    signal backClicked
+    signal backPressAndHold
+
     height: 56
     anchors {
         top: !parent ? undefined : parent.top
         left: !parent ? undefined : parent.left
         right: !parent ? undefined : parent.right
-        rightMargin: screen.inPortrait ? 70 : 112
     }
 
     Component.onCompleted: root.parent = Utils.findRootItem(root)
@@ -45,10 +47,19 @@ Item {
 
         spacing: platformStyle.paddingSmall
         anchors {
-            right: parent.right
+            right: backButton.left
             rightMargin: platformStyle.paddingNormal
             verticalCenter: parent.verticalCenter
         }
+    }
+
+    BackButton {
+        id: backButton
+
+        anchors { top: parent.top; right: parent.right }
+        iconSource: pressed ? "image://theme/wmBackIconPressed" : "image://theme/wmBackIcon"
+        onClicked: root.backClicked()
+        onPressAndHold: root.backPressAndHold()
     }
 
     MouseArea {
