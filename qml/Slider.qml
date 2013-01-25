@@ -5,11 +5,15 @@ Item {
 
     property int orientation: Qt.Horizontal
     property bool enabled: true
+    property alias pressed: mouseArea.pressed
     property bool bidirectional: false
     property Style platformStyle: SliderStyle {}
     property alias minimumValue: range.minimumValue
     property alias maximumValue: range.maximumValue
     property alias value: range.value
+
+    signal handlePressed
+    signal handleReleased
 
     objectName: "__slider"
     width: platformStyle.sliderWidth
@@ -86,12 +90,13 @@ Item {
         drag.maximumX: range.positionAtMaximum
 
         onPressed: {
+            root.handlePressed();
             oldPosition = range.position;
             var newX = Math.max(mouse.x - handle.width / 2, drag.minimumX);
             newX = Math.min(newX, drag.maximumX);
             range.position = newX;
         }
-
+        onReleased: root.handleReleased()
         onCanceled: {
             range.position = oldPosition;
         }
