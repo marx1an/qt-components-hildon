@@ -1,0 +1,14 @@
+Source: qt-components-hildon-gallery
+Section: user/hidden
+Priority: optional
+Maintainer: Stuart Howarth <stuart@unknown>
+Build-Depends: debhelper (>= 5), libqt4-dev
+Standards-Version: 3.7.3
+Homepage: <insert the upstream URL, if relevant>
+
+Package: qt-components-hildon-gallery
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Demo application for QtComponents Hildon
+ <insert long description, indented with spaces>
+XB-Maemo-Display-Name: QtComponents Hildon Gallery

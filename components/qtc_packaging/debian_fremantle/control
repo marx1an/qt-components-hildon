@@ -1,0 +1,14 @@
+Source: qt-components-hildon
+Section: libs
+Priority: optional
+Maintainer: Stuart Howarth <stuhowarth77@gmail.com>
+Build-Depends: debhelper (>= 5), libqt4-dev(>= 4.7.0~)
+Standards-Version: 3.7.3
+
+Package: qt-components-hildon
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, qtquickcompat, libqt4-declarative, libqtm-12
+Description: QML components offering Hildon styling
+ QtComponents Hildon offers a set of Qt Quick components that
+ enable developers to write Hildon-style user interfaces using QML.
+XB-Maemo-Display-Name: QtComponents Hildon
