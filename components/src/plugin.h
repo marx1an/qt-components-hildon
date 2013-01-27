@@ -8,6 +8,7 @@
 #include "maskeditem.h"
 #include "effects.h"
 #include "qdeclarativeprocess.h"
+#include "qdeclarativesettings.h"
 #include <QtDeclarative>
 #include <QApplication>
 
@@ -60,6 +61,7 @@ public:
         qmlRegisterType<BlurEffect>(uri, 1, 0, "BlurEffect");
         qmlRegisterType<DesaturateEffect>(uri, 1, 0, "DesaturateEffect");
         qmlRegisterType<QDeclarativeProcess>(uri, 1, 0, "Process");
+        qmlRegisterType<QDeclarativeSettings>(uri, 1, 0, "Settings");
     }
 };
 
