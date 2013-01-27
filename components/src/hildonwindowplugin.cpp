@@ -5,11 +5,12 @@
 #include <QApplication>
 #include <QDeclarativeView>
 #include <QDeclarativeItem>
+#include <QPixmap>
 #include <QDebug>
 
 HildonWindowPlugin::HildonWindowPlugin(QDeclarativeItem *parent) :
     QObject(parent),
-    m_orientation(HildonScreenOrientation::LockLandscape)
+    m_orientation(HildonScreenOrientation::Automatic)
 {
 }
 
@@ -74,4 +75,26 @@ void HildonWindowPlugin::setScreenOrientation(int orientation) {
 
     view->setAttribute(attribute, true);
     emit screenOrientationChanged();
+}
+
+bool HildonWindowPlugin::takeScreenShot(const QString &fileName, int x, int y, int width, int height, int scaledWidth, int scaledHeight) {
+    QDeclarativeView *view = qobject_cast<QDeclarativeView*>(QApplication::activeWindow());
+
+    if (!view) {
+        qWarning() << "No active window. Cannot take screenshot";
+        return false;
+    }
+
+    QPixmap screenShot = QPixmap::grabWidget(view, x, y, width, height);
+
+    if (!screenShot.isNull()) {
+        if ((scaledWidth > 0) && (scaledHeight > 0)) {
+            return screenShot.scaled(scaledWidth, scaledHeight, Qt::IgnoreAspectRatio, Qt::SmoothTransformation).save(fileName);
+        }
+        else {
+            return screenShot.save(fileName);
+        }
+    }
+
+    return false;
 }

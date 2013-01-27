@@ -21,6 +21,7 @@ public:
     void setScreenOrientation(int orientation);
     Q_INVOKABLE void minimize();
     Q_INVOKABLE void activate();
+    Q_INVOKABLE bool takeScreenShot(const QString &fileName, int x = 0, int y = 0, int width = -1, int height = -1, int scaledWidth = -1, int scaledHeight = -1);
     
 signals:
     void screenOrientationChanged();
