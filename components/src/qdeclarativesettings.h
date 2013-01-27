@@ -29,6 +29,7 @@ public:
     explicit QDeclarativeSettings(QDeclarativeItem *parent = 0);
     Q_INVOKABLE QVariant value(const QString &key, const QVariant &defaultValue = QVariant()) const;
     Q_INVOKABLE void setValue(const QString &key, const QVariant &value);
+    Q_INVOKABLE void remove(const QString &key);
     inline QString organizationName() const { return m_organizationName; }
     void setOrganizationName(const QString &name);
     inline QString applicationName() const { return m_applicationName; }

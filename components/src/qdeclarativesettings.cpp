@@ -10,7 +10,13 @@ QDeclarativeSettings::QDeclarativeSettings(QDeclarativeItem *parent) :
 }
 
 QVariant QDeclarativeSettings::value(const QString &key, const QVariant &defaultValue) const {
-    return !m_settings ? QVariant() : m_settings->value(key, defaultValue);
+    if (m_settings) {
+        return m_settings->value(key, defaultValue);
+    }
+    else {
+        qWarning() << "Settings not initialized";
+        return QVariant();
+    }
 }
 
 void QDeclarativeSettings::setValue(const QString &key, const QVariant &value) {
@@ -19,6 +25,18 @@ void QDeclarativeSettings::setValue(const QString &key, const QVariant &value) {
             m_settings->setValue(key, value);
             emit valueChanged(key, value);
         }
+        else {
+            qWarning() << "Settings not initialized";
+        }
+    }
+}
+
+void QDeclarativeSettings::remove(const QString &key) {
+    if (m_settings) {
+        m_settings->remove(key);
+    }
+    else {
+        qWarning() << "Settings not initialized";
     }
 }
 
