@@ -17,13 +17,13 @@ PageStackWindow {
     Settings {
         id: settings
 
-        fileName: "/home/stuart/.config/QtComponentsHildon/Browser/browser.conf"
+        fileName: "/home/user/.config/QtComponentsHildon/Browser/browser.conf"
     }
 
     BookmarksModel {
         id: bookmarks
 
-        fileName: "/home/stuart/.config/QtComponentsHildon/Browser/bookmarks.xml"
+        fileName: "/home/user/.config/QtComponentsHildon/Browser/bookmarks.xml"
     }
 
     InfoBanner {
