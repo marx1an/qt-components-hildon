@@ -2,7 +2,6 @@
 #define BOOKMARKSMODEL_H
 
 #include <QAbstractListModel>
-#include <QDeclarativeParserStatus>
 #include <QDomDocument>
 
 class BookmarksModel : public QAbstractListModel
